@@ -26,7 +26,7 @@ const RenderDish = ({ dish }) => {
     }
 }
 
-const RenderComments = ({ comments }) => {
+const RenderComments = ({ dish }) => {
 
     if (dish != null) {
         const comments = dish.comments.map((com) => {
