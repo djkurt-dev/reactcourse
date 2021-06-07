@@ -53,6 +53,8 @@ const RenderComments = ({ comments }) => {
 }
 
 const DishDetail = (props) => {
+
+
     return (
         <div className="container">
             <div className="row">
