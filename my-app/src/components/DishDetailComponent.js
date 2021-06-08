@@ -26,10 +26,10 @@ const RenderDish = ({ dish }) => {
     }
 }
 
-const RenderComments = ({ dish }) => {
+const RenderComments = ({ comments }) => {
 
-    if (dish != null) {
-        const comments = dish.comments.map((com) => {
+    if (comments != null) {
+        const coms = comments.map((com) => {
             return (
                 <li key={com.id}>
                     <p>{com.comment}</p>
@@ -41,7 +41,7 @@ const RenderComments = ({ dish }) => {
             <div>
                 <h4>Comments</h4>
                 <ul className="list-unstyled">
-                    {comments}
+                    {coms}
                 </ul>
             </div>
         );
@@ -62,7 +62,7 @@ const DishDetail = (props) => {
                     <RenderDish dish={props.dish} />
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.dish.comments} />
+                    <RenderComments comments={props.comments} />
                 </div>
             </div>
         </div>
