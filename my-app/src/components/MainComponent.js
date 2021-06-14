@@ -24,8 +24,6 @@ class Main extends Component {
         super(props);
     }
 
-
-
     render() {
         const HomePage = (props) => {
             return (
