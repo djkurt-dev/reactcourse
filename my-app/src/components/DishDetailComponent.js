@@ -5,6 +5,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Component } from 'react';
 import { addComment } from '../redux/ActionCreators';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -111,7 +112,7 @@ const RenderDish = ({ dish }) => {
         return (
             <div>
                 <Card>
-                    <CardImg top src={dish.image} alt={dish.name}></CardImg>
+                    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
                     <CardBody>
                         <CardTitle>{dish.name}</CardTitle>
                         <CardText>{dish.description}</CardText>
