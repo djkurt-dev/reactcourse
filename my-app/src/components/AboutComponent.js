@@ -1,7 +1,8 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader({ leader }) {
     return (
@@ -9,7 +10,7 @@ function RenderLeader({ leader }) {
             <div className="row mt-5">
                 <div className="col-lg-2 col-md-2 col-sm-12">
                     <Media left top>
-                        <Media object src={leader.image} alt={leader.name} />
+                        <Media object src={baseUrl + leader.image} alt={leader.name} />
                     </Media>
                 </div>
                 <div className="col-lg-10 col-md-10 col-sm-12">
@@ -29,9 +30,11 @@ function RenderLeader({ leader }) {
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
-            <RenderLeader leader={leader} />
+            <Fade in>
+                <RenderLeader leader={leader} />
+            </Fade>
         );
     });
 
@@ -77,8 +80,8 @@ function About(props) {
                                 <p className="mb-0">You better cut the pizza in four pieces because
                                     I'm not hungry enough to eat six.</p>
                                 <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
-                                    P. Pepe, Diversion Books, 2014</cite>
+                                    <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
+                                        P. Pepe, Diversion Books, 2014</cite>
                                 </footer>
                             </blockquote>
                         </CardBody>
@@ -93,7 +96,10 @@ function About(props) {
                     <Media list>
                         <div className="container">
                             <div className="row">
-                                {leaders}
+                                <Stagger in>
+                                    {leaders}
+                                </Stagger>
+
                             </div>
                         </div>
                     </Media>

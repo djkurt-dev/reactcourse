@@ -153,7 +153,6 @@ const RenderComments = ({ comments, postComment, dishId }) => {
                     <Stagger in>
                         {coms}
                     </Stagger>
-
                 </ul>
                 <CommentForm dishId={dishId} postComment={postComment} />
             </div>

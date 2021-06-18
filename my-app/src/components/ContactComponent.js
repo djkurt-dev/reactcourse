@@ -21,9 +21,10 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log("Current State is: " + JSON.stringify(values));
-        alert("Current State is: " + JSON.stringify(values));
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
         this.props.resetFeedbackForm();
+        console.log("Current State is: " + JSON.stringify(values));
+        alert("Thank you for your Feedback! " + JSON.stringify(values));
     }
 
     render() {
@@ -72,7 +73,7 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-md-9">
                         <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
                                     <Control.text model=".firstname" id="firstname" name="firstname"
@@ -95,7 +96,7 @@ class Contact extends Component {
 
                                 </Col>
                             </Row>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Label htmlFor="lastname" md={2}>Last Name</Label>
                                 <Col md={10}>
                                     <Control.text model=".lastname" id="lastname" name="lastname"
@@ -117,7 +118,7 @@ class Contact extends Component {
                                     }}
                                 />
                             </Row>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
                                 <Col md={10}>
                                     <Control.text model=".telnum" id="telnum" name="telnum"
@@ -140,7 +141,7 @@ class Contact extends Component {
                                     }}
                                 />
                             </Row>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>
                                     <Control.text model=".email" id="email" name="email"
@@ -160,7 +161,7 @@ class Contact extends Component {
                                     }}
                                 />
                             </Row>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Col md={{ size: 6, offset: 2 }}>
                                     <div className="form-check">
                                         <Label check>
@@ -187,7 +188,7 @@ class Contact extends Component {
                                         className="form-control" />
                                 </Col>
                             </Row>
-                            <Row className="form-group">
+                            <Row className="form-group mb-3">
                                 <Col md={{ size: 10, offset: 2 }}>
                                     <Button type="submit" color="primary">
                                         Send Feedback
